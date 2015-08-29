@@ -67,6 +67,51 @@ namespace ContagemPontosDeFuncao {
         protected global::System.Web.UI.WebControls.View cadastro;
         
         /// <summary>
+        /// txtNomeProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeProjeto;
+        
+        /// <summary>
+        /// txtDescricaoProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDescricaoProjeto;
+        
+        /// <summary>
+        /// lblNomeCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomeCliente;
+        
+        /// <summary>
+        /// hdfIdCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfIdCliente;
+        
+        /// <summary>
+        /// txtNomeClienteCadastroPesquisa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeClienteCadastroPesquisa;
+        
+        /// <summary>
         /// btnPesquisarCliente control.
         /// </summary>
         /// <remarks>
@@ -83,5 +128,14 @@ namespace ContagemPontosDeFuncao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdCliente;
+        
+        /// <summary>
+        /// btnCadastrarProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCadastrarProjeto;
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -21,22 +22,7 @@ namespace ContagemPontosDeFuncao
             }
         }
 
-        protected void btnPesquisar_Click(object sender, EventArgs e)
-        {
-            popularGridView(new ProjetoControl().BuscarTodos());
-            grdProjetos.DataBind();
-        }
-
-        protected void btnCadastrar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnPesquisarCliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        #region MULTIVIEW
         protected void mnuPrincipal_MenuItemClick(object sender, MenuEventArgs e)
         {
             string value = ((Menu)sender).SelectedValue;
@@ -54,87 +40,107 @@ namespace ContagemPontosDeFuncao
 
             }
         }
-
         private void MenuReferencia()
         {
             MultiView1.ActiveViewIndex = 0;
-
-            //CarregarComboDisciplina();
-
         }
-
-        //Consulta de Documento de Engenharia
         private void MenuConsulta()
         {
             MultiView1.ActiveViewIndex = 1;
         }
+        #endregion
 
-
-        public void popularGridView(IList<Cliente> p)
+        #region BOTOES
+        protected void btnPesquisar_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            DataColumn column;
-            DataRow row;
-            DataView view;
+            popularGridView(new ProjetoControl().BuscarTodos());
+            grdProjetos.DataBind();
+        }
 
-            column = new DataColumn();
-            column.ColumnName = "id";
-            dt.Columns.Add(column);
+        protected void btnPesquisarCliente_Click(object sender, EventArgs e)
+        {
+            var clientes = new ClienteControl().Buscar(txtNomeClienteCadastroPesquisa.Value.Trim());
+            popularGridView(clientes);
+        }
 
-            column = new DataColumn();
-            column.ColumnName = "Nome do Projeto";
-            dt.Columns.Add(column);
-
-            foreach (Cliente cli in p)
+        protected void btnCadastrarProjeto_Click(object sender, EventArgs e)
+        {
+            if (Validar())
             {
-                row = dt.NewRow();
-                row["id"] = cli.Id;
-                row["Nome do Cliente"] = cli.Nome;
-                dt.Rows.Add(row);
-            }
-            view = new DataView(dt);
-            grdCliente.DataSource = view;
-            grdCliente.DataBind();
+                try
+                {
+                    var projeto = new Projeto();
+                    var cliente = new Cliente();
 
+                    cliente.Id = Convert.ToInt16(hdfIdCliente.Value);
+
+                    projeto.Cliente = cliente;
+                    projeto.Nome = txtNomeProjeto.Value;
+                    projeto.Descricao = txtDescricaoProjeto.Value;
+
+                    new ProjetoControl().Salvar(projeto);
+
+                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('Projeto cadastrado com sucesso!');</script>");
+
+                    LimparCampos();
+                    grdCliente.DataSource = null;
+                    
+
+                }
+                catch (Exception ex)
+                {
+
+                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('" + ex.Message + "');</script>");
+                }
+            }
+        }
+
+        private bool Validar()
+        {
+            StringBuilder sbMsn = new StringBuilder();
+
+            if (hdfIdCliente.Value.Equals(string.Empty))
+                sbMsn.Append("Informe: O cliente do projeto; ");
+
+            if (txtDescricaoProjeto.Value.Trim().Equals(string.Empty))
+                sbMsn.Append("Informe: A descrição do projeto; ");
+
+            if (txtNomeProjeto.Value.Trim().Equals(string.Empty))
+                sbMsn.Append("Informe: O nome do projeto; ");
+
+            if (sbMsn.ToString().Trim().Equals(string.Empty))
+                return true;
+            else
+            {
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('" + sbMsn.ToString() + "');</script>");
+                return false;
+            }
+        }
+
+        private void LimparCampos()
+        {
+            hdfIdCliente.Value = string.Empty;
+            txtNomeProjeto.Value = string.Empty;
+            txtDescricaoProjeto.Value = string.Empty;
+            lblNomeCliente.Text = string.Empty;
+            txtNomeClienteCadastroPesquisa.Value = string.Empty;
+            btnCadastrarProjeto.Text = "Cadastrar";
+        }
+
+        #endregion
+
+        #region GRIDS
+        public void popularGridView(IList<Cliente> c)
+        {
+            grdCliente.DataSource = c;
+            grdCliente.DataBind();
         }
 
 
         public void popularGridView(IList<Projeto> p)
         {
-            DataTable dt = new DataTable();
-            DataColumn column;
-            DataRow row;
-            DataView view;
-
-            column = new DataColumn();
-            column.ColumnName = "id";
-            dt.Columns.Add(column);
-
-            column = new DataColumn();
-            column.ColumnName = "Nome do Projeto";
-            dt.Columns.Add(column);
-
-            column = new DataColumn();
-            column.ColumnName = "Nome do Cliente";
-            dt.Columns.Add(column);
-
-            column = new DataColumn();
-            column.ColumnName = "Descrição do Projeto";
-            dt.Columns.Add(column);
-
-            foreach (Projeto proj in p)
-            {
-                row = dt.NewRow();
-                row["id"] = proj.Id;
-                row["Nome do Projeto"] = proj.Nome;
-                row["Nome do Cliente"] = proj.Cliente.Nome;
-                row["Descrição do Projeto"] = proj.Descricao;
-                dt.Rows.Add(row);
-            }
-            view = new DataView(dt);
-            grdProjetos.DataSource = view;
+            grdProjetos.DataSource = p;
             grdProjetos.DataBind();
-
         }
 
         protected void grdProjetos_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -147,6 +153,22 @@ namespace ContagemPontosDeFuncao
             e.Row.Cells[0].Visible = false;
         }
 
+        protected void grdCliente_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("Adcionar"))
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow linha = grdCliente.Rows[index];
+                Label lblId = (Label)linha.FindControl("lblId");
+
+                var cliente = new ClienteControl().Buscar(Convert.ToInt16(lblId.Text));
+                lblNomeCliente.Text = cliente.Nome;
+                hdfIdCliente.Value = cliente.Id.ToString();
+
+                popularGridView(new ClienteControl().BuscarTodosMenos(cliente.Id));
+            }
+        }
+        #endregion
 
 
     }

@@ -1,10 +1,6 @@
 ﻿using Infra.Entidades;
-using NHibernate;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Infra.Negocio
 {
@@ -50,6 +46,38 @@ namespace Infra.Negocio
                     return session.QueryOver<Cliente>()
                         //.Where(x => x.Nome == "Ctinf")
                         .List();
+                }
+            }
+        }
+
+        public IList<Cliente> BuscarTodosMenos(int id)
+        {
+            var sessionFactory = Conexao.CreateSessionFactory();
+            {
+                using (var session = sessionFactory.OpenSession())
+                {
+                    return session.QueryOver<Cliente>()
+                        .Where(x => x.Id != id)
+                        .List();
+                }
+            }
+        }
+
+        public IList<Cliente> Buscar(string NomeCliente)
+        {
+            var sessionFactory = Conexao.CreateSessionFactory();
+            {
+                using (var session = sessionFactory.OpenSession())
+                {
+                    if (NomeCliente != string.Empty)
+                    {
+                        return session.QueryOver<Cliente>()
+                            .WhereRestrictionOn(x => x.Nome).IsLike(NomeCliente)
+                            .List();
+                    }
+                    else
+                        return session.QueryOver<Cliente>()
+                            .List();
                 }
             }
         }
