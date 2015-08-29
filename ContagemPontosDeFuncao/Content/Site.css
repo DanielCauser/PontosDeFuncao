@@ -18,6 +18,30 @@ body {
     white-space: normal;
 }
 
+.menu
+{
+    height:28px;   
+    /*width: 190px;*/
+    background-color: #FFFBD6;
+    font-family:Verdana;
+    font-size:small;
+    color :#990000;
+    
+}
+        
+.staticHoverStyle
+{
+   
+    background-color:#FFFBD6;
+    color:Black;
+      
+}
+
+.staticSelectedStyle
+{
+   background-color: #FFCC66;
+}
+
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input[type="text"],
 input[type="password"],

@@ -40,6 +40,24 @@ namespace ContagemPontosDeFuncao {
         protected global::System.Web.UI.WebControls.View pesquisa;
         
         /// <summary>
+        /// txtPesquisaProjetoNome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPesquisaProjetoNome;
+        
+        /// <summary>
+        /// txtPesquisaProjetoCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPesquisaProjetoCliente;
+        
+        /// <summary>
         /// btnPesquisar control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace ContagemPontosDeFuncao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View cadastro;
+        
+        /// <summary>
+        /// hdfIdProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfIdProjeto;
         
         /// <summary>
         /// txtNomeProjeto control.

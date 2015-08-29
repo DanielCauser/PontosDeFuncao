@@ -145,6 +145,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Imagens\Add_24.png" />
+    <Content Include="Imagens\cadastrar.png" />
+    <Content Include="Imagens\Consultar_24.png" />
+    <Content Include="Imagens\Editar_24.png" />
     <Content Include="Paginas\Cadastro\Modulo\ModuloCad.aspx" />
     <Content Include="Paginas\Cadastro\Projetos\ProjetoCad.aspx" />
     <Content Include="Paginas\Cadastro\Clientes\ClienteCad.aspx" />
@@ -388,7 +392,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Imagens\" />
     <Folder Include="Paginas\Administrativo\" />
   </ItemGroup>
   <ItemGroup>

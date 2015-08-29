@@ -30,30 +30,30 @@ namespace ContagemPontosDeFuncao
             switch (value)
             {
                 //Cadastro de documento
-                case "0": MenuReferencia();
+                case "1": MenuCadastro();
                     break;
                 //Consultar documento
-                case "1": MenuConsulta();
+                case "0": MenuConsulta();
                     popularGridView(new ProjetoControl().BuscarTodos());
                     grdProjetos.DataBind();
                     break;
 
             }
         }
-        private void MenuReferencia()
+        private void MenuCadastro()
         {
-            MultiView1.ActiveViewIndex = 0;
+            MultiView1.ActiveViewIndex = 1;
         }
         private void MenuConsulta()
         {
-            MultiView1.ActiveViewIndex = 1;
+            MultiView1.ActiveViewIndex = 0;
         }
         #endregion
 
         #region BOTOES
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
-            popularGridView(new ProjetoControl().BuscarTodos());
+            popularGridView(new ProjetoControl().Buscar(txtPesquisaProjetoCliente.Value.Trim(), txtPesquisaProjetoNome.Value.Trim()));
             grdProjetos.DataBind();
         }
 
@@ -69,22 +69,48 @@ namespace ContagemPontosDeFuncao
             {
                 try
                 {
-                    var projeto = new Projeto();
-                    var cliente = new Cliente();
+                    if (hdfIdProjeto.Value.Equals(string.Empty))
+                    {
+                        var projeto = new Projeto();
+                        var cliente = new Cliente();
 
-                    cliente.Id = Convert.ToInt16(hdfIdCliente.Value);
+                        cliente.Id = Convert.ToInt16(hdfIdCliente.Value);
 
-                    projeto.Cliente = cliente;
-                    projeto.Nome = txtNomeProjeto.Value;
-                    projeto.Descricao = txtDescricaoProjeto.Value;
+                        projeto.Cliente = cliente;
+                        projeto.Nome = txtNomeProjeto.Value;
+                        projeto.Descricao = txtDescricaoProjeto.Value;
 
-                    new ProjetoControl().Salvar(projeto);
+                        new ProjetoControl().Salvar(projeto);
 
-                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('Projeto cadastrado com sucesso!');</script>");
+                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('Projeto cadastrado com sucesso!');</script>");
 
-                    LimparCampos();
-                    grdCliente.DataSource = null;
-                    
+                        LimparCampos();
+                        grdCliente.DataSource = null;
+                        popularGridView(new ProjetoControl().BuscarTodos());
+                        MenuConsulta();
+                    }
+                    else
+                    {
+                        var projeto = new Projeto();
+                        var cliente = new Cliente();
+
+                        cliente.Id = Convert.ToInt16(hdfIdCliente.Value);
+                        projeto.Cliente = cliente;
+
+                        projeto.Id = Convert.ToInt16(hdfIdProjeto.Value);
+                        projeto.Nome = txtNomeProjeto.Value;
+                        projeto.Descricao = txtDescricaoProjeto.Value;
+
+                        new ProjetoControl().Salvar(projeto);
+
+                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('Projeto editado com sucesso!');</script>");
+
+                        LimparCampos();
+                        grdCliente.DataSource = null;
+                        popularGridView(new ProjetoControl().BuscarTodos());
+                        MenuConsulta();
+                        btnCadastrarProjeto.Text = "Cadastrar";
+                    }
 
                 }
                 catch (Exception ex)
@@ -125,6 +151,7 @@ namespace ContagemPontosDeFuncao
             lblNomeCliente.Text = string.Empty;
             txtNomeClienteCadastroPesquisa.Value = string.Empty;
             btnCadastrarProjeto.Text = "Cadastrar";
+            hdfIdProjeto.Value = string.Empty;
         }
 
         #endregion
@@ -166,6 +193,26 @@ namespace ContagemPontosDeFuncao
                 hdfIdCliente.Value = cliente.Id.ToString();
 
                 popularGridView(new ClienteControl().BuscarTodosMenos(cliente.Id));
+            }
+        }
+
+        protected void grdProjetos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("Editar"))
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                GridViewRow linha = grdProjetos.Rows[index];
+                Label lblId = (Label)linha.FindControl("lblId");
+
+                var proj = new ProjetoControl().Buscar(Convert.ToInt16(lblId.Text));
+
+                lblNomeCliente.Text = proj.Cliente.Nome;
+                hdfIdCliente.Value = proj.Cliente.Id.ToString();
+                txtNomeProjeto.Value = proj.Nome;
+                txtDescricaoProjeto.Value = proj.Descricao;
+                hdfIdProjeto.Value = proj.Id.ToString();
+                MenuCadastro();
+                btnCadastrarProjeto.Text = "Salvar";
             }
         }
         #endregion

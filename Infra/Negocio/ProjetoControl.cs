@@ -1,10 +1,13 @@
 ﻿using Infra.Entidades;
-using NHibernate;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Linq.Expressions;
+using LinqKit;
+using NHibernate.Transform;
+using NHibernate.SqlCommand;
+using NHibernate.Criterion;
 
 namespace Infra.Negocio
 {
@@ -48,8 +51,32 @@ namespace Infra.Negocio
                 using (var session = sessionFactory.OpenSession())
                 {
                     return session.QueryOver<Projeto>()
-                        //.Where(x => x.Nome == "Ctinf")
                         .List();
+                }
+            }
+        }
+
+        public IList<Projeto> Buscar(string nomeCliente, string nomeProjeto)
+        {
+            var sessionFactory = Conexao.CreateSessionFactory();
+            {
+                using (var session = sessionFactory.OpenSession())
+                {
+                    var query = session.QueryOver<Projeto>();
+
+                    if (!nomeProjeto.Equals(string.Empty))
+                        query.WhereRestrictionOn(p => p.Nome).IsLike("%" + nomeProjeto + "%");
+
+                    if (!nomeCliente.Equals(string.Empty))
+                    {
+                        Cliente srAlias = null;
+                        query.JoinAlias(x => x.Cliente, () => srAlias, JoinType.LeftOuterJoin)
+                            .WhereRestrictionOn(x => srAlias.Nome).IsLike("%" + nomeCliente + "%");
+                    }
+
+                    IList<Projeto> projetos = query.List();
+                    
+                    return projetos;
                 }
             }
         }
