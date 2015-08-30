@@ -16,9 +16,9 @@ namespace ContagemPontosDeFuncao
 
         }
 
-        protected void Pesquisar_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            IList<Cliente> clientes = new ClienteControl().BuscarTodos();
+            IList<FuncaoDoProjeto> clientes = new FuncaoDoProjetoControl().BuscarTodos();
         }
     }
 }

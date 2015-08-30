@@ -13,12 +13,12 @@ namespace ContagemPontosDeFuncao {
     public partial class _Default {
         
         /// <summary>
-        /// Pesquisar control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Pesquisar;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

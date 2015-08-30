@@ -50,21 +50,22 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>
-                            <a runat="server" href="~/">Inicio</a>
-
-                        </li>
-                        <li>
-                            <a runat="server" href="~/About">Administrativo</a>
-
-                        </li>
-                        <li class="dropdown" id="cadastrosMenu">
+                        <li class="dropdown">
                             <a class="nav navbar-nav" data-toggle="dropdown" href="#">Cadastros<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/Paginas/Cadastro/Clientes/ClienteCad.aspx">Clientes</a></li>
-                                <li><a href="/Paginas/Cadastro/Modulos/ModuloCad.aspx">Módulos</a></li>
                                 <li><a href="/Paginas/Cadastro/Projetos/ProjetoCad.aspx">Projetos</a></li>
-                                <%--<li class="divider"></li>--%>
+                                <li><a href="/Paginas/Cadastro/ItensDeProjeto/ItensDeProjetoCad.aspx">Itans de projeto</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="nav navbar-nav" data-toggle="dropdown" href="#">Produtividade<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="nav navbar-nav" data-toggle="dropdown" href="#">Relatórios<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
                             </ul>
                         </li>
                     </ul>

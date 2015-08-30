@@ -149,6 +149,7 @@
     <Content Include="Imagens\cadastrar.png" />
     <Content Include="Imagens\Consultar_24.png" />
     <Content Include="Imagens\Editar_24.png" />
+    <Content Include="Paginas\Cadastro\ItensDeProjeto\ItensDeProjetoCad.aspx" />
     <Content Include="Paginas\Cadastro\Modulo\ModuloCad.aspx" />
     <Content Include="Paginas\Cadastro\Projetos\ProjetoCad.aspx" />
     <Content Include="Paginas\Cadastro\Clientes\ClienteCad.aspx" />
@@ -331,6 +332,13 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Paginas\Cadastro\ItensDeProjeto\ItensDeProjetoCad.aspx.cs">
+      <DependentUpon>ItensDeProjetoCad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paginas\Cadastro\ItensDeProjeto\ItensDeProjetoCad.aspx.designer.cs">
+      <DependentUpon>ItensDeProjetoCad.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Paginas\Cadastro\Modulo\ModuloCad.aspx.cs">
       <DependentUpon>ModuloCad.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -392,7 +400,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Paginas\Administrativo\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Infra\Infra.csproj">

@@ -92,9 +92,12 @@
   <ItemGroup>
     <Compile Include="Conexao.cs" />
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\FuncaoDoProjeto.cs" />
     <Compile Include="Entidades\Projeto.cs" />
     <Compile Include="Mapeamento\ClienteMap.cs" />
+    <Compile Include="Mapeamento\FuncaoDoProjetoMap.cs" />
     <Compile Include="Mapeamento\ProjetoMap.cs" />
+    <Compile Include="Negocio\FuncaoDoProjetoControl.cs" />
     <Compile Include="Negocio\ProjetoControl.cs" />
     <Compile Include="Negocio\ClienteControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
