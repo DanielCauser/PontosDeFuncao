@@ -153,7 +153,7 @@
                                 Telefone:
                                 <input class="form-control" id="txtTelefoneCadastro" runat="server">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group dropdown">
                                 Tipo de documento:
                                 <asp:DropDownList ID="ddlTipoDocumento" runat="server">
                                     <asp:ListItem Text="CPF" Value="CPF"/>

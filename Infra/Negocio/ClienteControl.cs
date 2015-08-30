@@ -71,7 +71,7 @@ namespace Infra.Negocio
                     if (NomeCliente != string.Empty)
                     {
                         return session.QueryOver<Cliente>()
-                            .WhereRestrictionOn(x => x.Nome).IsLike(NomeCliente)
+                            .WhereRestrictionOn(x => x.Nome).IsLike("%"+NomeCliente+"%")
                             .List();
                     }
                     else
