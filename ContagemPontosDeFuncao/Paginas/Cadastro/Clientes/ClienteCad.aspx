@@ -34,27 +34,11 @@
                         <div class="panel-body">
                             <div class="form-group">
                                 Nome do cliente:
-                                <input class="form-control" id="txtNomeCliente" runat="server">
+                                <input class="form-control" id="txtNomeClientePesquisa" runat="server">
                             </div>
                             <div class="form-group">
                                 Nome empresa:
-                                <input class="form-control" id="txtNomeEmpresa" runat="server">
-                            </div>
-                            <div class="form-group">
-                                E-mail:
-                                <input class="form-control" id="txtEmail" runat="server">
-                            </div>
-                            <div class="form-group">
-                                Telefone:
-                                <input class="form-control" id="txtTelefone" runat="server">
-                            </div>
-                            <div class="form-group">
-                                Tipo de documento:
-                                <input class="form-control" id="Text1" runat="server">
-                            </div>
-                            <div class="form-group">
-                                Numero documento:
-                                <input class="form-control" id="txtNumeroDocumento" runat="server">
+                                <input class="form-control" id="txtNomeEmpresaPesquisa" runat="server">
                             </div>
 
                             <div class="form-group">
@@ -63,111 +47,9 @@
                             <div class="form-group">
                                 <h6 class="panel-title">Resultado: </h6>
                             </div>
-                            <div class="form-group">
-                                <asp:GridView runat="server" CssClass="table table-striped" ID="grdProjetos"
-                                    AutoGenerateColumns="False"
-                                    OnRowDataBound="grdProjetos_RowDataBound"
-                                    OnRowCommand="grdProjetos_RowCommand">
-                                    <Columns>
-
-                                        <asp:TemplateField HeaderText="ID" Visible="false">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblId" runat="server"
-                                                    Text='<%# Eval("Id") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-
-                                        <asp:TemplateField HeaderText="Nome do Projeto" Visible="true">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblNome" runat="server"
-                                                    Text='<%# Eval("Nome") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Left" />
-                                        </asp:TemplateField>
-
-                                        <asp:TemplateField HeaderText="Nome do Cliente" Visible="true">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblNomeCliente" runat="server"
-                                                    Text='<%# Eval("Cliente.Nome") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Left" />
-                                        </asp:TemplateField>
-
-                                        <asp:TemplateField HeaderText="Descrição do Projeto" Visible="true">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblDescricao" runat="server"
-                                                    Text='<%# Eval("Descricao") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle HorizontalAlign="Left" />
-                                        </asp:TemplateField>
-
-                                        <asp:TemplateField HeaderText="">
-                                            <ItemTemplate>
-                                                <asp:ImageButton ID="imbEditar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Editar_24.png"
-                                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                                    CommandName="Editar" Text="Editar" ToolTip="editar projeto" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-
-                                    </Columns>
-                                </asp:GridView>
-                            </div>
-                        </div>
-                    </div>
-
-                </asp:View>
-                <!-- /tab pesquisa -->
-
-                <!-- tab cadastro -->
-                <asp:View ID="cadastro" runat="server">
-                    <div class="panel panel-default">
-
-                        <div class="panel-heading">
-                            <h6 class="panel-title">Cadastro de Projetos: </h6>
-                        </div>
-                        <div class="panel-body">
-                            <asp:HiddenField ID="hdfIdProjeto" runat="server" />
-                            <div class="form-group">
-                                Nome do cliente:
-                                <input class="form-control" id="Text2" runat="server">
-                            </div>
-                            <div class="form-group">
-                                Nome empresa:
-                                <input class="form-control" id="Text3" runat="server">
-                            </div>
-                            <div class="form-group">
-                                E-mail:
-                                <input class="form-control" id="Text4" runat="server">
-                            </div>
-                            <div class="form-group">
-                                Telefone:
-                                <input class="form-control" id="Text5" runat="server">
-                            </div>
-                            <div class="form-group">
-                                Tipo de documento:
-                                <asp:DropDownList ID="ddlTipoDocumento" runat="server">
-                                    <asp:ListItem Text="CPF" Value="CPF"/>
-                                    <asp:ListItem Text="CNPJ" Value="CNPJ"/>
-                                </asp:DropDownList>
-                            </div>
-                            <div class="form-group">
-                                Numero documento:
-                                <input class="form-control" id="Text7" runat="server">
-                            </div>
-                            <hr />
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" runat="server" id="txtNomeClienteCadastroPesquisa">
-                                        <span class="input-group-btn">
-                                            <asp:Button class="btn btn-default" ID="btnPesquisarCliente" runat="server" Text="Pesquisar Cliente" OnClick="btnPesquisarCliente_Click" />
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="panel-body">
-                                    <asp:GridView runat="server" class="form-control" CssClass="table table-striped" ID="grdCliente"
+                                    <asp:GridView runat="server" class="form-control" CssClass="table table-bordered" ID="grdCliente"
                                         AutoGenerateColumns="False"
                                         OnRowDataBound="grdCliente_RowDataBound"
                                         OnRowCommand="grdCliente_RowCommand">
@@ -180,14 +62,6 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderText="">
-                                                <ItemTemplate>
-                                                    <asp:ImageButton ID="imbAdcionar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Add_24.png"
-                                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                                        CommandName="Adcionar" Text="Adcionar" ToolTip="adcionar cliente a projeto" />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-
                                             <asp:TemplateField HeaderText="Nome Cliente" Visible="true">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblNome" runat="server"
@@ -196,15 +70,105 @@
                                                 <ItemStyle HorizontalAlign="Left" />
                                             </asp:TemplateField>
 
+                                            <asp:TemplateField HeaderText="Nome Empresa" Visible="true">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblEmpresa" runat="server"
+                                                        Text='<%# Eval("Empresa") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Left" />
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="E-mail" Visible="true">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblEmail" runat="server"
+                                                        Text='<%# Eval("Email") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Left" />
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="Telefone" Visible="true">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblTelefone" runat="server"
+                                                        Text='<%# Eval("Telefone") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Left" />
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="Tipo Documento" Visible="true">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblTipoDeRegistro" runat="server"
+                                                        Text='<%# Eval("TipoDeRegistro") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Left" />
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="Numero Documento" Visible="true">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblRegistro" runat="server"
+                                                        Text='<%# Eval("Registro") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Left" />
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="">
+                                                <ItemTemplate>
+                                                    <asp:ImageButton ID="imbEditar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Editar_24.png"
+                                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                                        CommandName="Editar" Text="Editar" ToolTip="editar projeto" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
 
                                         </Columns>
                                     </asp:GridView>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                </asp:View>
+                <!-- /tab pesquisa -->
+
+                <!-- tab cadastro -->
+                <asp:View ID="cadastro" runat="server">
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+                            <h6 class="panel-title">Cadastro de Clientes: </h6>
+                        </div>
+                        <div class="panel-body">
+                            <asp:HiddenField ID="hdfIdCliente" runat="server" />
+                            <div class="form-group">
+                                Nome do cliente:
+                                <input class="form-control" id="txtNomeClienteCadastro" runat="server">
+                            </div>
+                            <div class="form-group">
+                                Nome empresa:
+                                <input class="form-control" id="txtNomeEmpresaCadastro" runat="server">
+                            </div>
+                            <div class="form-group">
+                                E-mail:
+                                <input class="form-control" id="txtEmailCadastro" runat="server">
+                            </div>
+                            <div class="form-group">
+                                Telefone:
+                                <input class="form-control" id="txtTelefoneCadastro" runat="server">
+                            </div>
+                            <div class="form-group">
+                                Tipo de documento:
+                                <asp:DropDownList ID="ddlTipoDocumento" runat="server">
+                                    <asp:ListItem Text="CPF" Value="CPF"/>
+                                    <asp:ListItem Text="CNPJ" Value="CNPJ"/>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="form-group">
+                                Numero documento:
+                                <input class="form-control" id="txtNumeroDocumentoCadastro" runat="server">
+                            </div>
+                            <hr />
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group">
-                                        <asp:Button class="btn btn-primary" ID="btnCadastrarProjeto" runat="server" Text="Cadastrar" OnClick="btnCadastrarProjeto_Click" />
+                                        <asp:Button class="btn btn-primary" ID="btnCadastrarCliente" runat="server" Text="Cadastrar" OnClick="btnCadastrarCliente_Click" />
                                     </div>
                                 </div>
                             </div>

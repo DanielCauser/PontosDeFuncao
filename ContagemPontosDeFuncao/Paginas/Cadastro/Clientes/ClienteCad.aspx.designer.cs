@@ -40,58 +40,22 @@ namespace ContagemPontosDeFuncao {
         protected global::System.Web.UI.WebControls.View pesquisa;
         
         /// <summary>
-        /// txtNomeCliente control.
+        /// txtNomeClientePesquisa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeCliente;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeClientePesquisa;
         
         /// <summary>
-        /// txtNomeEmpresa control.
+        /// txtNomeEmpresaPesquisa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeEmpresa;
-        
-        /// <summary>
-        /// txtEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmail;
-        
-        /// <summary>
-        /// txtTelefone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTelefone;
-        
-        /// <summary>
-        /// Text1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
-        
-        /// <summary>
-        /// txtNumeroDocumento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumeroDocumento;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeEmpresaPesquisa;
         
         /// <summary>
         /// btnPesquisar control.
@@ -103,13 +67,13 @@ namespace ContagemPontosDeFuncao {
         protected global::System.Web.UI.WebControls.Button btnPesquisar;
         
         /// <summary>
-        /// grdProjetos control.
+        /// grdCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdProjetos;
+        protected global::System.Web.UI.WebControls.GridView grdCliente;
         
         /// <summary>
         /// cadastro control.
@@ -121,49 +85,49 @@ namespace ContagemPontosDeFuncao {
         protected global::System.Web.UI.WebControls.View cadastro;
         
         /// <summary>
-        /// hdfIdProjeto control.
+        /// hdfIdCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfIdProjeto;
+        protected global::System.Web.UI.WebControls.HiddenField hdfIdCliente;
         
         /// <summary>
-        /// Text2 control.
+        /// txtNomeClienteCadastro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeClienteCadastro;
         
         /// <summary>
-        /// Text3 control.
+        /// txtNomeEmpresaCadastro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text3;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeEmpresaCadastro;
         
         /// <summary>
-        /// Text4 control.
+        /// txtEmailCadastro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text4;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmailCadastro;
         
         /// <summary>
-        /// Text5 control.
+        /// txtTelefoneCadastro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text5;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTelefoneCadastro;
         
         /// <summary>
         /// ddlTipoDocumento control.
@@ -175,48 +139,21 @@ namespace ContagemPontosDeFuncao {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoDocumento;
         
         /// <summary>
-        /// Text7 control.
+        /// txtNumeroDocumentoCadastro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text7;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNumeroDocumentoCadastro;
         
         /// <summary>
-        /// txtNomeClienteCadastroPesquisa control.
+        /// btnCadastrarCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeClienteCadastroPesquisa;
-        
-        /// <summary>
-        /// btnPesquisarCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPesquisarCliente;
-        
-        /// <summary>
-        /// grdCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCliente;
-        
-        /// <summary>
-        /// btnCadastrarProjeto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCadastrarProjeto;
+        protected global::System.Web.UI.WebControls.Button btnCadastrarCliente;
     }
 }

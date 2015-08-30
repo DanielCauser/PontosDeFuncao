@@ -44,7 +44,6 @@ namespace Infra.Negocio
                 using (var session = sessionFactory.OpenSession())
                 {
                     return session.QueryOver<Cliente>()
-                        //.Where(x => x.Nome == "Ctinf")
                         .List();
                 }
             }
@@ -78,6 +77,28 @@ namespace Infra.Negocio
                     else
                         return session.QueryOver<Cliente>()
                             .List();
+                }
+            }
+        }
+
+        public IList<Cliente> Buscar(string nomeCliente, string nomeEmpresa)
+        {
+            var sessionFactory = Conexao.CreateSessionFactory();
+            {
+                using (var session = sessionFactory.OpenSession())
+                {
+                    var query = session.QueryOver<Cliente>();
+
+                    if (!nomeCliente.Equals(string.Empty))
+                        query.WhereRestrictionOn(p => p.Nome).IsLike("%" + nomeCliente + "%");
+
+                    if (!nomeEmpresa.Equals(string.Empty))
+                        query.WhereRestrictionOn(p => p.Empresa).IsLike("%" + nomeEmpresa + "%");
+
+                    IList<Cliente> clientes = query.List();
+
+                    return clientes;
+
                 }
             }
         }

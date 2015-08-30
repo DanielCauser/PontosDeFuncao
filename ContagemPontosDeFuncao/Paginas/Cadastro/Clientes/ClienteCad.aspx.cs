@@ -29,11 +29,12 @@ namespace ContagemPontosDeFuncao
             {
                 //Cadastro de documento
                 case "1": MenuCadastro();
+                            LimparCampos();
                     break;
                 //Consultar documento
                 case "0": MenuConsulta();
-                    popularGridView(new ProjetoControl().BuscarTodos());
-                    grdProjetos.DataBind();
+                    popularGridView(new ClienteControl().BuscarTodos());
+                    grdCliente.DataBind();
                     break;
 
             }
@@ -49,65 +50,63 @@ namespace ContagemPontosDeFuncao
         #endregion
 
         #region BOTOES
+        
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
-            popularGridView(new ProjetoControl().Buscar(txtPesquisaProjetoCliente.Value.Trim(), txtPesquisaProjetoNome.Value.Trim()));
-            grdProjetos.DataBind();
-        }
-
-        protected void btnPesquisarCliente_Click(object sender, EventArgs e)
-        {
-            var clientes = new ClienteControl().Buscar(txtNomeClienteCadastroPesquisa.Value.Trim());
+            var clientes = new ClienteControl().Buscar(
+                txtNomeClientePesquisa.Value.Trim(),
+                txtNomeEmpresaPesquisa.Value.Trim());
             popularGridView(clientes);
         }
 
-        protected void btnCadastrarProjeto_Click(object sender, EventArgs e)
+        protected void btnCadastrarCliente_Click(object sender, EventArgs e)
         {
             if (Validar())
             {
                 try
                 {
-                    if (hdfIdProjeto.Value.Equals(string.Empty))
+                    if (hdfIdCliente.Value.Equals(string.Empty))
                     {
-                        var projeto = new Projeto();
                         var cliente = new Cliente();
 
-                        cliente.Id = Convert.ToInt16(hdfIdCliente.Value);
+                        cliente.Nome = txtNomeClienteCadastro.Value.Trim();
+                        cliente.Empresa = txtNomeEmpresaCadastro.Value.Trim();
+                        cliente.Email = txtEmailCadastro.Value.Trim();
+                        cliente.Telefone = txtTelefoneCadastro.Value.Trim();
+                        cliente.Registro= txtNumeroDocumentoCadastro.Value.Trim();
+                        cliente.TipoDeRegistro = ddlTipoDocumento.SelectedValue.Trim();
 
-                        projeto.Cliente = cliente;
-                        projeto.Nome = txtNomeProjeto.Value;
-                        projeto.Descricao = txtDescricaoProjeto.Value;
 
-                        new ProjetoControl().Salvar(projeto);
+                        new ClienteControl().Salvar(cliente);
 
-                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('Projeto cadastrado com sucesso!');</script>");
+                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('Cliente cadastrado com sucesso!');</script>");
 
                         LimparCampos();
                         grdCliente.DataSource = null;
-                        popularGridView(new ProjetoControl().BuscarTodos());
+                        popularGridView(new ClienteControl().BuscarTodos());
                         MenuConsulta();
                     }
                     else
                     {
-                        var projeto = new Projeto();
                         var cliente = new Cliente();
 
                         cliente.Id = Convert.ToInt16(hdfIdCliente.Value);
-                        projeto.Cliente = cliente;
+                        cliente.Nome = txtNomeClienteCadastro.Value.Trim();
+                        cliente.Empresa = txtNomeEmpresaCadastro.Value.Trim();
+                        cliente.Email = txtEmailCadastro.Value.Trim();
+                        cliente.Telefone = txtTelefoneCadastro.Value.Trim();
+                        cliente.Registro = txtNumeroDocumentoCadastro.Value.Trim();
+                        cliente.TipoDeRegistro = ddlTipoDocumento.SelectedValue.Trim();
 
-                        projeto.Id = Convert.ToInt16(hdfIdProjeto.Value);
-                        projeto.Nome = txtNomeProjeto.Value;
-                        projeto.Descricao = txtDescricaoProjeto.Value;
+                        new ClienteControl().Salvar(cliente);
 
-                        new ProjetoControl().Salvar(projeto);
-
-                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('Projeto editado com sucesso!');</script>");
+                        Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('Cliente editado com sucesso!');</script>");
 
                         LimparCampos();
                         grdCliente.DataSource = null;
-                        popularGridView(new ProjetoControl().BuscarTodos());
+                        popularGridView(new ClienteControl().BuscarTodos());
                         MenuConsulta();
-                        btnCadastrarProjeto.Text = "Cadastrar";
+                        btnCadastrarCliente.Text = "Cadastrar";
                     }
 
                 }
@@ -123,14 +122,23 @@ namespace ContagemPontosDeFuncao
         {
             StringBuilder sbMsn = new StringBuilder();
 
-            if (hdfIdCliente.Value.Equals(string.Empty))
-                sbMsn.Append("Informe: O cliente do projeto; ");
+            if (txtNomeClienteCadastro.Value.Equals(string.Empty))
+                sbMsn.Append("Informe: Nome do cliente; ");
 
-            if (txtDescricaoProjeto.Value.Trim().Equals(string.Empty))
-                sbMsn.Append("Informe: A descrição do projeto; ");
+            if (txtNomeEmpresaCadastro.Value.Trim().Equals(string.Empty))
+                sbMsn.Append("Informe: A Empresado cliente; ");
 
-            if (txtNomeProjeto.Value.Trim().Equals(string.Empty))
-                sbMsn.Append("Informe: O nome do projeto; ");
+            if (txtEmailCadastro.Value.Trim().Equals(string.Empty))
+                sbMsn.Append("Informe: O e-mail do cliente; ");
+
+            if (txtTelefoneCadastro.Value.Trim().Equals(string.Empty))
+                sbMsn.Append("Informe: O Telefone do cliente; ");
+
+            if (ddlTipoDocumento.SelectedItem.Equals(string.Empty))
+                sbMsn.Append("Informe: O tipo do documento do cliente; ");
+
+            if (txtNumeroDocumentoCadastro.Value.Trim().Equals(string.Empty))
+                sbMsn.Append("Informe: O numero do documento do cliente; ");
 
             if (sbMsn.ToString().Trim().Equals(string.Empty))
                 return true;
@@ -144,12 +152,12 @@ namespace ContagemPontosDeFuncao
         private void LimparCampos()
         {
             hdfIdCliente.Value = string.Empty;
-            txtNomeProjeto.Value = string.Empty;
-            txtDescricaoProjeto.Value = string.Empty;
-            lblNomeCliente.Text = string.Empty;
-            txtNomeClienteCadastroPesquisa.Value = string.Empty;
-            btnCadastrarProjeto.Text = "Cadastrar";
-            hdfIdProjeto.Value = string.Empty;
+            txtNomeClienteCadastro.Value = string.Empty;
+            txtNomeEmpresaCadastro.Value = string.Empty;
+            txtEmailCadastro.Value = string.Empty;
+            txtTelefoneCadastro.Value = string.Empty;
+            txtNumeroDocumentoCadastro.Value = string.Empty;
+            btnCadastrarCliente.Text = "Cadastrar";
         }
 
         #endregion
@@ -161,56 +169,32 @@ namespace ContagemPontosDeFuncao
             grdCliente.DataBind();
         }
 
-
-        public void popularGridView(IList<Projeto> p)
-        {
-            grdProjetos.DataSource = p;
-            grdProjetos.DataBind();
-        }
-
-        protected void grdProjetos_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            e.Row.Cells[0].Visible = false;
-        }
-
+        
         protected void grdCliente_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             e.Row.Cells[0].Visible = false;
         }
-
+        
         protected void grdCliente_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName.Equals("Adcionar"))
+            if (e.CommandName.Equals("Editar"))
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow linha = grdCliente.Rows[index];
                 Label lblId = (Label)linha.FindControl("lblId");
 
                 var cliente = new ClienteControl().Buscar(Convert.ToInt16(lblId.Text));
-                lblNomeCliente.Text = cliente.Nome;
+
                 hdfIdCliente.Value = cliente.Id.ToString();
+                txtNomeClienteCadastro.Value = cliente.Nome;
+                txtNomeEmpresaCadastro.Value = cliente.Empresa;
+                txtEmailCadastro.Value = cliente.Email;
+                txtTelefoneCadastro.Value = cliente.Telefone;
+                txtNumeroDocumentoCadastro.Value = cliente.Registro;
+                ddlTipoDocumento.SelectedValue = cliente.TipoDeRegistro;
+                btnCadastrarCliente.Text = "Salvar";
 
-                popularGridView(new ClienteControl().BuscarTodosMenos(cliente.Id));
-            }
-        }
-
-        protected void grdProjetos_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName.Equals("Editar"))
-            {
-                int index = Convert.ToInt32(e.CommandArgument);
-                GridViewRow linha = grdProjetos.Rows[index];
-                Label lblId = (Label)linha.FindControl("lblId");
-
-                var proj = new ProjetoControl().Buscar(Convert.ToInt16(lblId.Text));
-
-                lblNomeCliente.Text = proj.Cliente.Nome;
-                hdfIdCliente.Value = proj.Cliente.Id.ToString();
-                txtNomeProjeto.Value = proj.Nome;
-                txtDescricaoProjeto.Value = proj.Descricao;
-                hdfIdProjeto.Value = proj.Id.ToString();
                 MenuCadastro();
-                btnCadastrarProjeto.Text = "Salvar";
             }
         }
         #endregion

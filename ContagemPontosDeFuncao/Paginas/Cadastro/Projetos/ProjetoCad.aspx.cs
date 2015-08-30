@@ -31,6 +31,7 @@ namespace ContagemPontosDeFuncao
             {
                 //Cadastro de documento
                 case "1": MenuCadastro();
+                    LimparCampos();
                     break;
                 //Consultar documento
                 case "0": MenuConsulta();
