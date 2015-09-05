@@ -1,4 +1,5 @@
 ﻿using Infra.Entidades;
+using NHibernate.SqlCommand;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,31 @@ namespace Infra.Negocio
                 {
                     return session.QueryOver<FuncaoDoProjeto>()
                         .List();
+                }
+            }
+        }
+
+        public IList<FuncaoDoProjeto> Buscar(string nomeFuncaoProjeto, string nomeProjeto)
+        {
+            var sessionFactory = Conexao.CreateSessionFactory();
+            {
+                using (var session = sessionFactory.OpenSession())
+                {
+                    var query = session.QueryOver<FuncaoDoProjeto>();
+
+                    if (!nomeFuncaoProjeto.Equals(string.Empty))
+                        query.WhereRestrictionOn(p => p.Nome).IsLike("%" + nomeFuncaoProjeto + "%");
+
+                    if (!nomeProjeto.Equals(string.Empty))
+                    {
+                        Projeto srAlias = null;
+                        query.JoinAlias(x => x.Projeto, () => srAlias, JoinType.LeftOuterJoin)
+                            .WhereRestrictionOn(x => srAlias.Nome).IsLike("%" + nomeProjeto + "%");
+                    }
+
+                    IList<FuncaoDoProjeto> funcaoProjeto = query.List();
+
+                    return funcaoProjeto;
                 }
             }
         }

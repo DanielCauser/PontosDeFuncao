@@ -22,24 +22,23 @@ body {
 {
     height:28px;   
     /*width: 190px;*/
-    background-color: #FFFBD6;
     font-family:Verdana;
-    font-size:small;
-    color :#990000;
+    font-size:large;
+    color :#ffffff;
     
 }
         
 .staticHoverStyle
 {
    
-    background-color:#FFFBD6;
+    background-color:#ffffff;
     color:Black;
       
 }
 
 .staticSelectedStyle
 {
-   background-color: #FFCC66;
+   background-color: #585858;
 }
 
 /* Set widths on the form inputs since otherwise they're 100% wide */

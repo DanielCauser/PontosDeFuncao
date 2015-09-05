@@ -55,7 +55,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="/Paginas/Cadastro/Clientes/ClienteCad.aspx">Clientes</a></li>
                                 <li><a href="/Paginas/Cadastro/Projetos/ProjetoCad.aspx">Projetos</a></li>
-                                <li><a href="/Paginas/Cadastro/ItensDeProjeto/ItensDeProjetoCad.aspx">Itans de projeto</a></li>
+                                <li><a href="/Paginas/Cadastro/ItensDeProjeto/ItensDeProjetoCad.aspx">Itens de projeto</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">

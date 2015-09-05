@@ -80,6 +80,19 @@ namespace Infra.Negocio
                 }
             }
         }
+
+        public IList<Projeto> BuscarTodosMenos(int id)
+        {
+            var sessionFactory = Conexao.CreateSessionFactory();
+            {
+                using (var session = sessionFactory.OpenSession())
+                {
+                    return session.QueryOver<Projeto>()
+                        .Where(x => x.Id != id)
+                        .List();
+                }
+            }
+        }
     }
 }
 

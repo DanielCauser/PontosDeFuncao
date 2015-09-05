@@ -40,6 +40,15 @@ namespace ContagemPontosDeFuncao.Paginas.Cadastro.ItensDeProjeto {
         protected global::System.Web.UI.WebControls.View pesquisa;
         
         /// <summary>
+        /// txtPesquisaItemProjetoProjetoNome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPesquisaItemProjetoProjetoNome;
+        
+        /// <summary>
         /// txtPesquisaProjetoNome control.
         /// </summary>
         /// <remarks>
@@ -47,15 +56,6 @@ namespace ContagemPontosDeFuncao.Paginas.Cadastro.ItensDeProjeto {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtPesquisaProjetoNome;
-        
-        /// <summary>
-        /// txtPesquisaProjetoCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPesquisaProjetoCliente;
         
         /// <summary>
         /// btnPesquisar control.
@@ -67,13 +67,13 @@ namespace ContagemPontosDeFuncao.Paginas.Cadastro.ItensDeProjeto {
         protected global::System.Web.UI.WebControls.Button btnPesquisar;
         
         /// <summary>
-        /// grdProjetos control.
+        /// grdItemProjetos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdProjetos;
+        protected global::System.Web.UI.WebControls.GridView grdItemProjetos;
         
         /// <summary>
         /// cadastro control.
@@ -85,6 +85,69 @@ namespace ContagemPontosDeFuncao.Paginas.Cadastro.ItensDeProjeto {
         protected global::System.Web.UI.WebControls.View cadastro;
         
         /// <summary>
+        /// hdfIdItemProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdfIdItemProjeto;
+        
+        /// <summary>
+        /// txtNomeProjetoCadastroPesquisa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeProjetoCadastroPesquisa;
+        
+        /// <summary>
+        /// btnPesquisarProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPesquisarProjeto;
+        
+        /// <summary>
+        /// grdProjetos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdProjetos;
+        
+        /// <summary>
+        /// frmInformacoesItemProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl frmInformacoesItemProjeto;
+        
+        /// <summary>
+        /// lblAcaoItemProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAcaoItemProjeto;
+        
+        /// <summary>
+        /// lblNomeProjeto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomeProjeto;
+        
+        /// <summary>
         /// hdfIdProjeto control.
         /// </summary>
         /// <remarks>
@@ -94,67 +157,22 @@ namespace ContagemPontosDeFuncao.Paginas.Cadastro.ItensDeProjeto {
         protected global::System.Web.UI.WebControls.HiddenField hdfIdProjeto;
         
         /// <summary>
-        /// txtNomeProjeto control.
+        /// txtNomeItemProjeto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeProjeto;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeItemProjeto;
         
         /// <summary>
-        /// txtDescricaoProjeto control.
+        /// txtDescricaoItemProjeto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDescricaoProjeto;
-        
-        /// <summary>
-        /// lblNomeCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNomeCliente;
-        
-        /// <summary>
-        /// hdfIdCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfIdCliente;
-        
-        /// <summary>
-        /// txtNomeClienteCadastroPesquisa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtNomeClienteCadastroPesquisa;
-        
-        /// <summary>
-        /// btnPesquisarCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPesquisarCliente;
-        
-        /// <summary>
-        /// grdCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCliente;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDescricaoItemProjeto;
         
         /// <summary>
         /// btnCadastrarProjeto control.
