@@ -10,8 +10,8 @@ Bem vindo ao projeto Pontos de funcao.
 * CADASTRAR CLIENTE ok
 * EDITAR CLIENTE ok
 
-* CADASTRAR FUNÇÃO DE PROJETO
-* EDITAR FUNÇÃO DE PROJETO
+* CADASTRAR FUNÇÃO DE PROJETO ok
+* EDITAR FUNÇÃO DE PROJETO ok
 
 * Alterações na documentação.
 
