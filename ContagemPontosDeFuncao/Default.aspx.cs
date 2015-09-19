@@ -18,7 +18,13 @@ namespace ContagemPontosDeFuncao
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            IList<FuncaoDoProjeto> clientes = new FuncaoDoProjetoControl().BuscarTodos();
+            //IList<FuncaoDoProjeto> clientes = new FuncaoDoProjetoControl().BuscarTodos();
+            //IList<TipoDePontoDeFuncao> clientes = new TipoDePontoDeFuncaoControl().BuscarTodos();
+            //IList<NivelDeComplexidade> clientes = new NivelDeComplexidadeControl().BuscarTodos();
+            //IList<AtribuicaoDePesoPF> clientes = new AtribuicaoDePesoPFControl().BuscarTodos();
+            //IList<CaracteristicasGerais> clientes = new CaracteristicasGeraisControl().BuscarTodos();
+            //IList<NivelDeInfluencia> clientes = new NivelDeInfluenciaControl().BuscarTodos();
+            IList<AtribuicaoDePesoNI> clientes = new AtribuicaoDePesoNIControl().BuscarTodos();
         }
     }
 }

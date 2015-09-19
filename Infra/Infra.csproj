@@ -91,15 +91,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao.cs" />
+    <Compile Include="Entidades\AtribuicaoDePesoNI.cs" />
+    <Compile Include="Entidades\AtribuicaoDePesoPF.cs" />
+    <Compile Include="Entidades\CaracteristicasGerais.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\FuncaoDoProjeto.cs" />
+    <Compile Include="Entidades\NivelDeComplexidade.cs" />
+    <Compile Include="Entidades\NivelDeInfluencia.cs" />
     <Compile Include="Entidades\Projeto.cs" />
+    <Compile Include="Entidades\TipoDePontoDeFuncao.cs" />
+    <Compile Include="Mapeamento\AtribuicaoDePesoNIMap.cs" />
+    <Compile Include="Mapeamento\AtribuicaoDePesoPFMap.cs" />
+    <Compile Include="Mapeamento\CaracteristicasGeraisMap.cs" />
     <Compile Include="Mapeamento\ClienteMap.cs" />
     <Compile Include="Mapeamento\FuncaoDoProjetoMap.cs" />
+    <Compile Include="Mapeamento\NivelDeComplexidadeMap.cs" />
+    <Compile Include="Mapeamento\NivelDeInfluenciaMap.cs" />
     <Compile Include="Mapeamento\ProjetoMap.cs" />
+    <Compile Include="Mapeamento\TipoDePontoDeFuncaoMap.cs" />
+    <Compile Include="Negocio\AtribuicaoDePesoNIControl.cs" />
+    <Compile Include="Negocio\AtribuicaoDePesoPFControl.cs" />
+    <Compile Include="Negocio\CaracteristicasGeraisControl.cs" />
     <Compile Include="Negocio\FuncaoDoProjetoControl.cs" />
+    <Compile Include="Negocio\NivelDeComplexidadeControl.cs" />
+    <Compile Include="Negocio\NivelDeInfluenciaControl.cs" />
     <Compile Include="Negocio\ProjetoControl.cs" />
     <Compile Include="Negocio\ClienteControl.cs" />
+    <Compile Include="Negocio\TipoDePontoDeFuncaoControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
