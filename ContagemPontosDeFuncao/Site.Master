@@ -61,6 +61,7 @@
                         <li class="dropdown">
                             <a class="nav navbar-nav" data-toggle="dropdown" href="#">Produtividade<b class="caret"></b></a>
                             <ul class="dropdown-menu">
+                                <li><a href="/Paginas/Cadastro/CalculoDePontosDeFuncao/CalculoPontosDeFuncaoCad.aspx">Calcular pontos de função</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
