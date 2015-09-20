@@ -190,31 +190,31 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="row">
+                                                <div class="form-group">
                                                     <div class="col-md-10 col-md-offset-1">
                                                         <hr />
-                                                        <h2>Itens selecionados: </h2>
+                                                        <h3>Itens selecionados: </h3>
                                                     </div>
                                                 </div>
-                                                <div class="row" visible="false" runat="server" id="rwPF1">
-                                                    <div class="col-md-2 col-md-offset-4">
+                                                <div class="form-group" visible="false" runat="server" id="rwPF1">
+                                                    <div class="col-md-3 col-md-offset-3">
                                                         <asp:Label ID="LabelPF1" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldPFId1" runat="server" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <asp:Label ID="LabelNC1" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldNCId1" runat="server" />
                                                     </div>
-                                                    <div class="col-md-2" visible="false">
+                                                    <div class="col-md-1" visible="false">
                                                         <asp:ImageButton ID="btnPFExcluir1" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnPFExcluir1_Click" />
                                                     </div>
                                                 </div>
-                                                <div class="row" visible="false" runat="server" id="rwPF2">
-                                                    <div class="col-md-2 col-md-offset-4">
+                                                <div class="form-group" visible="false" runat="server" id="rwPF2">
+                                                    <div class="col-md-3 col-md-offset-3">
                                                         <asp:Label ID="LabelPF2" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldPFId2" runat="server" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <asp:Label ID="LabelNC2" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldNCId2" runat="server" />
                                                     </div>
@@ -222,12 +222,12 @@
                                                         <asp:ImageButton ID="btnPFExcluir2" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnPFExcluir2_Click" />
                                                     </div>
                                                 </div>
-                                                <div class="row" visible="false" runat="server" id="rwPF3">
-                                                    <div class="col-md-2 col-md-offset-4">
+                                                <div class="form-group" visible="false" runat="server" id="rwPF3">
+                                                    <div class="col-md-3 col-md-offset-3">
                                                         <asp:Label ID="LabelPF3" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldPFId3" runat="server" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <asp:Label ID="LabelNC3" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldNCId3" runat="server" />
                                                     </div>
@@ -235,12 +235,12 @@
                                                         <asp:ImageButton ID="btnPFExcluir3" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnPFExcluir3_Click" />
                                                     </div>
                                                 </div>
-                                                <div class="row" visible="false" runat="server" id="rwPF4">
-                                                    <div class="col-md-2 col-md-offset-4">
+                                                <div class="form-group" visible="false" runat="server" id="rwPF4">
+                                                    <div class="col-md-3 col-md-offset-3">
                                                         <asp:Label ID="LabelPF4" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldPFId4" runat="server" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <asp:Label ID="LabelNC4" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldNCId4" runat="server" />
                                                     </div>
@@ -248,12 +248,12 @@
                                                         <asp:ImageButton ID="btnPFExcluir4" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnPFExcluir4_Click" />
                                                     </div>
                                                 </div>
-                                                <div class="row" visible="false" runat="server" id="rwPF5">
-                                                    <div class="col-md-2 col-md-offset-4">
+                                                <div class="form-group" visible="false" runat="server" id="rwPF5">
+                                                    <div class="col-md-3 col-md-offset-3">
                                                         <asp:Label ID="LabelPF5" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldPFId5" runat="server" />
                                                     </div>
-                                                    <div class="col-md-2">
+                                                    <div class="col-md-3">
                                                         <asp:Label ID="LabelNC5" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldNCId5" runat="server" />
                                                     </div>
@@ -342,13 +342,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="row">
+                                                    <div class="form-group">
                                                         <div class="col-md-10 col-md-offset-1">
                                                             <hr />
                                                             <h2>Itens selecionados: </h2>
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG1">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG1">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG1" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId1" runat="server" />
@@ -361,7 +361,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir1" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir1_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG2">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG2">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG2" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId2" runat="server" />
@@ -374,7 +374,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir2" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir2_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG3">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG3">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG3" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId3" runat="server" />
@@ -387,7 +387,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir3" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir3_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG4">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG4">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG4" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId4" runat="server" />
@@ -400,7 +400,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir4" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir4_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG5">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG5">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG5" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId5" runat="server" />
@@ -413,7 +413,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir5" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir5_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG6">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG6">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG6" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId6" runat="server" />
@@ -426,7 +426,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir6" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir6_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG7">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG7">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG7" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId7" runat="server" />
@@ -439,7 +439,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir7" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir7_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG8">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG8">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG8" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId8" runat="server" />
@@ -452,7 +452,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir8" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir8_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG9">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG9">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG9" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId9" runat="server" />
@@ -465,7 +465,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir9" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir9_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG10">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG10">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG10" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId10" runat="server" />
@@ -478,7 +478,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir10" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir10_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG11">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG11">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG11" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId11" runat="server" />
@@ -491,7 +491,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir11" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir11_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG12">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG12">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG12" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId12" runat="server" />
@@ -504,7 +504,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir12" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir12_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG13">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG13">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG13" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId13" runat="server" />
@@ -517,7 +517,7 @@
                                                             <asp:ImageButton ID="btnCGExcluir13" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir13_Click" />
                                                         </div>
                                                     </div>
-                                                    <div class="row" visible="false" runat="server" id="rwCG14">
+                                                    <div class="form-group" visible="false" runat="server" id="rwCG14">
                                                         <div class="col-md-2 col-md-offset-4">
                                                             <asp:Label ID="LabelCG14" runat="server" />
                                                             <asp:HiddenField ID="HiddenFieldCGId14" runat="server" />
@@ -539,6 +539,19 @@
                                             Calcular pontos de função
                                         </div>
                                         <div class="panel-body">
+                                            <div class="row  col-md-12">
+                                                <div class="form-group col-md-4 col-md-offset-3">
+                                                    <asp:Button class="btn btn-primary" ID="btnCalcularPontosDeFuncao" runat="server" Text="Calcular pontos de função" OnClick="btnCalcularPontosDeFuncao_Click" />
+                                                </div>
+                                            </div>
+                                            <div class="row col-md-12">
+                                                <div class="form-group col-md-8 col-md-offset-3">
+                                                    <h3>
+                                                        <asp:Label ID="lbltextoResultado" runat="server" Text="Pontos de função ajustados : " />
+                                                        <asp:Label ID="lblPontosDeFuncaoAjustados" runat="server" />
+                                                    </h3>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

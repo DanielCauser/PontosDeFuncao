@@ -3,6 +3,7 @@ using Infra.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -57,6 +58,245 @@ namespace ContagemPontosDeFuncao.Paginas.Cadastro.CalculoDePontosDeFuncao
             grdItemProjetos.DataBind();
             frmCalculoPontosFuncao.Visible = false;
         }
+        protected void btnCalcularPontosDeFuncao_Click(object sender, EventArgs e)
+        {
+            var idsPF = BuscaIdsPF();
+            var idsNC = BuscaIdsNC();
+            var idsCG = BuscaIdsCG();
+            var idsNI = BuscaIdsNI();
+
+            if (Validar(idsPF.ToArray(), idsNC.ToArray(), idsCG.ToArray(), idsNI.ToArray()))
+            {
+                var aPF = new AtribuicaoDePesoPFControl().BuscarPorPFeNC(idsPF.ToArray(), idsNC.ToArray());
+                var aCG = new AtribuicaoDePesoNIControl().BuscarPorCGeNI(idsCG.ToArray(), idsNI.ToArray());
+
+                var itemProjeto = new FuncaoDoProjetoControl().Buscar(Convert.ToInt16(hdfIdItemProjeto.Value));
+
+
+                int PFB = 0;
+                int TNI = 0;
+                double FA = 0;
+                //calcular pontos de função brutos
+                foreach (var p in aPF)
+                {
+                    PFB = p.Avaliacao + PFB;
+                }
+                //soma dos NI
+                foreach (var n in aCG)
+                {
+                    TNI = n.Avaliacao + TNI;
+                }
+                //calcular fator de ajuste 
+                FA = 0.65 + (0.01 * TNI);
+                //CALCULAR PONTOS DE FUNÇÃO AJUSTADP
+                //PFA = PFB * FA
+                itemProjeto.PfAjustado = PFB * FA;
+                itemProjeto.NivelDeInfluenciaTotal = TNI;
+                itemProjeto.PfBruto = PFB;
+                itemProjeto.FatorDeAjuste = FA;
+
+
+                DateTime dataCalculo = DateTime.Now;
+                try
+                {
+                    //AMARRAR O ITEM DE PROJETO COM ASSOCIACAOPF 
+                    foreach (var p in aPF)
+                    {
+                        var associacaoPf = new AssociacaoPF();
+                        associacaoPf.FuncaoDoProjeto = itemProjeto;
+                        associacaoPf.AtribuicaoDePesoPF = p;
+                        associacaoPf.DataAvaliacao = dataCalculo;
+                        new AssociacaoPFControl().Salvar(associacaoPf);
+                    }
+                    foreach (var c in aCG)
+                    {
+                        var associacaoNI = new AssociacaoNI();
+                        associacaoNI.FuncaoDoProjeto = itemProjeto;
+                        associacaoNI.AtribuicaoDePesoNI = c;
+                        associacaoNI.DataAvaliacao = dataCalculo;
+                        new AssociacaoNIControl().Salvar(associacaoNI);
+                    }
+
+                    new FuncaoDoProjetoControl().Salvar(itemProjeto);
+
+                    lblPontosDeFuncaoAjustados.Text = itemProjeto.PfAjustado.ToString();
+                }
+                catch (Exception ex) { }
+                //AMARRAR O ITEM DE PROJETO COM ASSOCIACAONI
+
+                //ATUALIZAR O ITEM DE PROJETO COM OS CÁLCULOS
+
+            }
+        }
+
+        private bool Validar(int[] idsPF, int[] idsNC, int[] idsCG, int[] idsNI)
+        {
+            StringBuilder sbMsn = new StringBuilder();
+
+            if (idsPF.Count() == 0 && idsNC.Count() == 0)
+                sbMsn.Append("Selecione os tipos de pontos de função e seus níveis de complexidade; ");
+            if (idsCG.Count() == 0 && idsNI.Count() == 0)
+                sbMsn.Append("Selecione as características gerais e seus níveis de influência; ");
+            if (!idsPF.Count().Equals(idsNC.Count()))
+                sbMsn.Append("Selecione o nível de complexidade faltante; ");
+            if (!idsCG.Count().Equals(idsNI.Count()))
+                sbMsn.Append("Selecione o nível de complexidade faltante; ");
+
+            if (sbMsn.ToString().Trim().Equals(string.Empty))
+                return true;
+            else
+            {
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "clientScript", "<script type=\"text/javascript\">alert('" + sbMsn.ToString() + "');</script>");
+                return false;
+            }
+        }
+
+        #region BUSCAR LABELS
+        public List<int> BuscaIdsPF()
+        {
+            List<int> Labels = new List<int>();
+
+            if (!HiddenFieldPFId1.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldPFId1.Value));
+
+            if (!HiddenFieldPFId2.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldPFId2.Value));
+
+            if (!HiddenFieldPFId3.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldPFId3.Value));
+
+            if (!HiddenFieldPFId4.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldPFId4.Value));
+
+            if (!HiddenFieldPFId5.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldPFId5.Value));
+
+            return Labels;
+        }
+
+        public List<int> BuscaIdsNC()
+        {
+            List<int> Labels = new List<int>();
+
+            if (!HiddenFieldNCId1.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNCId1.Value));
+
+            if (!HiddenFieldNCId2.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNCId2.Value));
+
+            if (!HiddenFieldNCId3.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNCId3.Value));
+
+            if (!HiddenFieldNCId4.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNCId4.Value));
+
+            if (!HiddenFieldNCId5.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNCId5.Value));
+
+            return Labels;
+        }
+
+        public List<int> BuscaIdsCG()
+        {
+            List<int> Labels = new List<int>();
+
+            if (!HiddenFieldCGId1.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId1.Value));
+
+            if (!HiddenFieldCGId2.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId2.Value));
+
+            if (!HiddenFieldCGId3.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId3.Value));
+
+            if (!HiddenFieldCGId4.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId4.Value));
+
+            if (!HiddenFieldCGId5.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId5.Value));
+
+            if (!HiddenFieldCGId6.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId6.Value));
+
+            if (!HiddenFieldCGId7.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId7.Value));
+
+            if (!HiddenFieldCGId8.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId8.Value));
+
+            if (!HiddenFieldCGId9.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId9.Value));
+
+            if (!HiddenFieldCGId10.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId10.Value));
+
+            if (!HiddenFieldCGId11.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId11.Value));
+
+            if (!HiddenFieldCGId12.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId12.Value));
+
+            if (!HiddenFieldCGId13.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId13.Value));
+
+            if (!HiddenFieldCGId14.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldCGId14.Value));
+
+            return Labels;
+        }
+
+        public List<int> BuscaIdsNI()
+        {
+            List<int> Labels = new List<int>();
+
+            if (!HiddenFieldNIId1.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId1.Value));
+
+            if (!HiddenFieldNIId2.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId2.Value));
+
+            if (!HiddenFieldNIId3.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId3.Value));
+
+            if (!HiddenFieldNIId4.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId4.Value));
+
+            if (!HiddenFieldNIId5.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId5.Value));
+
+            if (!HiddenFieldNIId6.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId6.Value));
+
+            if (!HiddenFieldNIId7.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId7.Value));
+
+            if (!HiddenFieldNIId8.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId8.Value));
+
+            if (!HiddenFieldNIId9.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId9.Value));
+
+            if (!HiddenFieldNIId10.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId10.Value));
+
+            if (!HiddenFieldNIId11.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId11.Value));
+
+            if (!HiddenFieldNIId12.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId12.Value));
+
+            if (!HiddenFieldNIId13.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId13.Value));
+
+            if (!HiddenFieldNIId14.Value.Equals(string.Empty))
+                Labels.Add(Convert.ToInt16(HiddenFieldNIId14.Value));
+
+
+            return Labels;
+        }
+
+        #endregion
+
         #endregion
 
         #region CARREGAR GRIDS
@@ -1003,8 +1243,6 @@ namespace ContagemPontosDeFuncao.Paginas.Cadastro.CalculoDePontosDeFuncao
         }
 
         #endregion
-
-
 
     }
 }

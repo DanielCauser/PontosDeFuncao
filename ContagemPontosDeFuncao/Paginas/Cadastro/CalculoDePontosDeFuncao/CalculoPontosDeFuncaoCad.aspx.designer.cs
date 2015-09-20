@@ -1172,5 +1172,32 @@ namespace ContagemPontosDeFuncao.Paginas.Cadastro.CalculoDePontosDeFuncao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnCGExcluir14;
+        
+        /// <summary>
+        /// btnCalcularPontosDeFuncao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCalcularPontosDeFuncao;
+        
+        /// <summary>
+        /// lbltextoResultado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbltextoResultado;
+        
+        /// <summary>
+        /// lblPontosDeFuncaoAjustados control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPontosDeFuncaoAjustados;
     }
 }

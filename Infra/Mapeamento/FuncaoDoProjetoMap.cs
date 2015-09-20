@@ -18,7 +18,7 @@ namespace Infra.Mapeamento
             Map(x => x.PfBruto, "PFBruto");
             Map(x => x.FatorDeAjuste, "fatorDeAjuste");
             Map(x => x.PfAjustado, "PFAjustado");
-            Map(x => x.NivelDeInfluênciaTotal, "NivelDeInfluenciaTotal");
+            Map(x => x.NivelDeInfluenciaTotal, "NivelDeInfluenciaTotal");
             Map(x => x.TempoRealDeDesenvolvimento, "tempoRealDeDesenvolvimento");
             Map(x => x.EstimativaDeDesenvolvimento, "estimativaDeDesenvolvimento");
             Map(x => x.QtdFatorDeProdutividade, "qtdFatorDeProdutividade");
