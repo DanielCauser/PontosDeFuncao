@@ -114,74 +114,79 @@
                                     <!-- tab tipos de funções e niveis de complexidade -->
 
                                     <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            Selecionar tipos de funções e niveis de complexidade
-                                        </div>
                                         <div class="panel-body">
                                             <div class="row">
-                                                <!--OnRowDataBound="grdItemProjetos_RowDataBound"
-                                                    -->
                                                 <div class="col-md-6">
-                                                    <asp:GridView runat="server" CssClass="table table-striped" ID="grdTipoPontoDeFuncao"
-                                                        AutoGenerateColumns="False"
-                                                        OnRowCommand="grdTipoPontoDeFuncao_RowCommand">
-                                                        <Columns>
-                                                            <asp:TemplateField HeaderText="ID" Visible="false">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblId" runat="server"
-                                                                        Text='<%# Eval("Id") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                    <div class="form-group">
+                                                        1° Selecione o tipo de pontos de função
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <asp:GridView runat="server" CssClass="table table-striped" ID="grdTipoPontoDeFuncao"
+                                                            AutoGenerateColumns="False"
+                                                            OnRowCommand="grdTipoPontoDeFuncao_RowCommand">
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="ID" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblId" runat="server"
+                                                                            Text='<%# Eval("Id") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="Tipo de ponto de função" Visible="true">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblNome" runat="server"
-                                                                        Text='<%# Eval("Nome") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Left" />
-                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Tipo de ponto de função" Visible="true">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblNome" runat="server"
+                                                                            Text='<%# Eval("Nome") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="">
-                                                                <ItemTemplate>
-                                                                    <asp:ImageButton ID="ibmAdcionar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Add_24.png"
-                                                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                                                        CommandName="Add" Text="Adcionar" ToolTip="selecionar item de projeto" />
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="">
+                                                                    <ItemTemplate>
+                                                                        <asp:ImageButton ID="ibmAdcionar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Add_24.png"
+                                                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                                                            CommandName="Add" Text="Adcionar" ToolTip="selecionar item de projeto" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                        </Columns>
-                                                    </asp:GridView>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <asp:GridView runat="server" CssClass="table table-striped" ID="grdNivelDeComplexidade"
-                                                        AutoGenerateColumns="False"
-                                                        OnRowCommand="grdNivelDeComplexidade_RowCommand">
-                                                        <Columns>
-                                                            <asp:TemplateField HeaderText="ID" Visible="false">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblId" runat="server"
-                                                                        Text='<%# Eval("Id") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                    <div class="form-group">
+                                                        2° Selecione o nivel de complexidade do tipo de função selecionado
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <asp:GridView runat="server" CssClass="table table-striped" ID="grdNivelDeComplexidade"
+                                                            AutoGenerateColumns="False"
+                                                            OnRowCommand="grdNivelDeComplexidade_RowCommand">
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="ID" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblId" runat="server"
+                                                                            Text='<%# Eval("Id") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="Nível de complexidade" Visible="true">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblNome" runat="server"
-                                                                        Text='<%# Eval("Nome") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Left" />
-                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Nível de complexidade" Visible="true">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblNome" runat="server"
+                                                                            Text='<%# Eval("Nome") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="">
-                                                                <ItemTemplate>
-                                                                    <asp:ImageButton ID="ibmAdcionar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Add_24.png"
-                                                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                                                        CommandName="Add" Text="Adcionar" ToolTip="selecionar item de projeto" />
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="">
+                                                                    <ItemTemplate>
+                                                                        <asp:ImageButton ID="ibmAdcionar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Add_24.png"
+                                                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                                                            CommandName="Add" Text="Adcionar" ToolTip="selecionar item de projeto" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                        </Columns>
-                                                    </asp:GridView>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -201,11 +206,11 @@
                                                         <asp:HiddenField ID="HiddenFieldNCId1" runat="server" />
                                                     </div>
                                                     <div class="col-md-2" visible="false">
-                                                        <asp:ImageButton ID="btnPFExcluir1" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnPFExcluir1_Click"/>
+                                                        <asp:ImageButton ID="btnPFExcluir1" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnPFExcluir1_Click" />
                                                     </div>
                                                 </div>
                                                 <div class="row" visible="false" runat="server" id="rwPF2">
-                                                    <div class="col-md-2 col-md-offset-4" >
+                                                    <div class="col-md-2 col-md-offset-4">
                                                         <asp:Label ID="LabelPF2" runat="server" />
                                                         <asp:HiddenField ID="HiddenFieldPFId2" runat="server" />
                                                     </div>
@@ -214,7 +219,7 @@
                                                         <asp:HiddenField ID="HiddenFieldNCId2" runat="server" />
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <asp:ImageButton ID="btnPFExcluir2" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnPFExcluir2_Click"/>
+                                                        <asp:ImageButton ID="btnPFExcluir2" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnPFExcluir2_Click" />
                                                     </div>
                                                 </div>
                                                 <div class="row" visible="false" runat="server" id="rwPF3">
@@ -262,82 +267,284 @@
 
                                     <!-- tab tipos de funções e niveis de complexidade -->
                                     <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            Selecionar características gerais e niveis de influência
-                                        </div>
                                         <div class="panel-body">
                                             <div class="row">
-                                                <!--OnRowDataBound="grdItemProjetos_RowDataBound"
-                                                    OnRowCommand="grdItemProjetos_RowCommand"-->
                                                 <div class="col-md-6">
-                                                    <asp:GridView runat="server" CssClass="table table-striped" ID="grdCaracteristicasGerais"
-                                                        AutoGenerateColumns="False">
-                                                        <Columns>
-                                                            <asp:TemplateField HeaderText="ID" Visible="false">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblId" runat="server"
-                                                                        Text='<%# Eval("Id") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                    <div class="form-group">
+                                                        1° Selecione a característica geral
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <asp:GridView runat="server" CssClass="table table-striped" ID="grdCaracteristicasGerais"
+                                                            AutoGenerateColumns="False"
+                                                            OnRowCommand="grdCaracteristicasGerais_RowCommand">
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="ID" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblId" runat="server"
+                                                                            Text='<%# Eval("Id") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="Caracteristicas gerais" Visible="true">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblNome" runat="server"
-                                                                        Text='<%# Eval("Nome") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Left" />
-                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Caracteristicas gerais" Visible="true">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblNome" runat="server"
+                                                                            Text='<%# Eval("Nome") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="">
-                                                                <ItemTemplate>
-                                                                    <asp:ImageButton ID="ibmAdcionar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Add_24.png"
-                                                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                                                        CommandName="Add" Text="Adcionar" ToolTip="selecionar item de projeto" />
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="">
+                                                                    <ItemTemplate>
+                                                                        <asp:ImageButton ID="ibmAdcionar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Add_24.png"
+                                                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                                                            CommandName="Add" Text="Adcionar" ToolTip="selecionar item de projeto" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                        </Columns>
-                                                    </asp:GridView>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <asp:GridView runat="server" CssClass="table table-striped" ID="grdNivelDeInfluencia"
-                                                        AutoGenerateColumns="False">
-                                                        <Columns>
-                                                            <asp:TemplateField HeaderText="ID" Visible="false">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblId" runat="server"
-                                                                        Text='<%# Eval("Id") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                    <div class="form-group">
+                                                        2° Selecione o nível de influência
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <asp:GridView runat="server" CssClass="table table-striped" ID="grdNivelDeInfluencia"
+                                                            AutoGenerateColumns="False"
+                                                            OnRowCommand="grdNivelDeInfluencia_RowCommand">
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="ID" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblId" runat="server"
+                                                                            Text='<%# Eval("Id") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="Nível de influência" Visible="true">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="lblNome" runat="server"
-                                                                        Text='<%# Eval("Nome") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                                <ItemStyle HorizontalAlign="Left" />
-                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Nível de influência" Visible="true">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblNome" runat="server"
+                                                                            Text='<%# Eval("Nome") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                    <ItemStyle HorizontalAlign="Left" />
+                                                                </asp:TemplateField>
 
-                                                            <asp:TemplateField HeaderText="">
-                                                                <ItemTemplate>
-                                                                    <asp:ImageButton ID="ibmAdcionar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Add_24.png"
-                                                                        CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
-                                                                        CommandName="Add" Text="Adcionar" ToolTip="selecionar item de projeto" />
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="">
+                                                                    <ItemTemplate>
+                                                                        <asp:ImageButton ID="ibmAdcionar" runat="server" CausesValidation="False" ImageUrl="~/Imagens/Add_24.png"
+                                                                            CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"
+                                                                            CommandName="Add" Text="Adcionar" ToolTip="selecionar item de projeto" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
 
-                                                        </Columns>
-                                                    </asp:GridView>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="row">
+                                                        <div class="col-md-10 col-md-offset-1">
+                                                            <hr />
+                                                            <h2>Itens selecionados: </h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG1">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG1" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId1" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI1" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId1" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir1" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir1_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG2">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG2" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId2" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI2" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId2" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir2" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir2_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG3">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG3" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId3" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI3" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId3" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir3" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir3_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG4">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG4" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId4" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI4" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId4" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir4" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir4_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG5">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG5" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId5" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI5" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId5" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir5" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir5_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG6">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG6" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId6" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI6" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId6" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir6" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir6_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG7">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG7" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId7" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI7" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId7" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir7" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir7_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG8">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG8" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId8" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI8" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId8" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir8" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir8_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG9">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG9" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId9" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI9" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId9" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir9" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir9_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG10">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG10" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId10" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI10" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId10" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir10" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir10_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG11">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG11" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId11" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI11" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId11" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir11" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir11_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG12">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG12" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId12" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI12" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId12" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir12" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir12_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG13">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG13" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId13" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI13" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId13" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir13" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir13_Click" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" visible="false" runat="server" id="rwCG14">
+                                                        <div class="col-md-2 col-md-offset-4">
+                                                            <asp:Label ID="LabelCG14" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldCGId14" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <asp:Label ID="LabelNI14" runat="server" />
+                                                            <asp:HiddenField ID="HiddenFieldNIId14" runat="server" />
+                                                        </div>
+                                                        <div class="col-md-1" visible="false">
+                                                            <asp:ImageButton ID="btnCGExcluir14" runat="server" ImageUrl="~/Imagens/deletar_24.png" OnClick="btnCGExcluir14_Click" />
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Calcular pontos de função
+                                        </div>
+                                        <div class="panel-body">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </asp:View>
             </asp:MultiView>
         </div>

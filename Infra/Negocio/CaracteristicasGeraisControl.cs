@@ -33,5 +33,19 @@ namespace Infra.Negocio
                 }
             }
         }
+
+        public IList<CaracteristicasGerais> BuscarMenosAlguns(int[] ids)
+        {
+            var sessionFactory = Conexao.CreateSessionFactory();
+            {
+                using (var session = sessionFactory.OpenSession())
+                {
+                    return session.QueryOver<CaracteristicasGerais>()
+                        .WhereRestrictionOn(bp => bp.Id)
+                        .Not.IsIn(ids)
+                        .List();
+                }
+            }
+        }
     }
 }
