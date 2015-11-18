@@ -236,7 +236,7 @@
               <FontSize>8pt</FontSize>
             </Style>
             <ChartLegendTitle>
-              <Caption />
+              <Caption>Valor dos projetos em USD</Caption>
               <Style>
                 <FontSize>8pt</FontSize>
                 <FontWeight>Bold</FontWeight>
