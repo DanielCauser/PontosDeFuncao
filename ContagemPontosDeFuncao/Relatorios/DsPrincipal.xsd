@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsPrincipal" targetNamespace="http://tempuri.org/DsPrincipal.xsd" xmlns:mstns="http://tempuri.org/DsPrincipal.xsd" xmlns="http://tempuri.org/DsPrincipal.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="PontosFuncaoConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PontosFuncaoConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.PontosFuncaoConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_PF_ATUALTableAdapter" GeneratorDataComponentClassName="vw_PF_ATUALTableAdapter" Name="vw_PF_ATUAL" UserDataComponentName="vw_PF_ATUALTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PontosFuncaoConnectionString (Web.config)" DbObjectName="PontosFuncao.dbo.vw_PF_ATUAL" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PF_TOTAL, NOME_PROJETO FROM dbo.vw_PF_ATUAL</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PF_TOTAL" DataSetColumn="PF_TOTAL" />
+              <Mapping SourceColumn="NOME_PROJETO" DataSetColumn="NOME_PROJETO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vw_PF_PRAZOTableAdapter" GeneratorDataComponentClassName="vw_PF_PRAZOTableAdapter" Name="vw_PF_PRAZO" UserDataComponentName="vw_PF_PRAZOTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PontosFuncaoConnectionString (Web.config)" DbObjectName="PontosFuncao.dbo.vw_PF_PRAZO" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT PF_TOTAL, NOME_PROJETO FROM dbo.vw_PF_PRAZO</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PF_TOTAL" DataSetColumn="PF_TOTAL" />
+              <Mapping SourceColumn="NOME_PROJETO" DataSetColumn="NOME_PROJETO" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsPrincipal" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsPrincipal" msprop:Generator_UserDSName="DsPrincipal">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vw_PF_ATUAL" msprop:Generator_TableClassName="vw_PF_ATUALDataTable" msprop:Generator_TableVarName="tablevw_PF_ATUAL" msprop:Generator_RowChangedName="vw_PF_ATUALRowChanged" msprop:Generator_TablePropName="vw_PF_ATUAL" msprop:Generator_RowDeletingName="vw_PF_ATUALRowDeleting" msprop:Generator_RowChangingName="vw_PF_ATUALRowChanging" msprop:Generator_RowEvHandlerName="vw_PF_ATUALRowChangeEventHandler" msprop:Generator_RowDeletedName="vw_PF_ATUALRowDeleted" msprop:Generator_RowClassName="vw_PF_ATUALRow" msprop:Generator_UserTableName="vw_PF_ATUAL" msprop:Generator_RowEvArgName="vw_PF_ATUALRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PF_TOTAL" msprop:Generator_ColumnVarNameInTable="columnPF_TOTAL" msprop:Generator_ColumnPropNameInRow="PF_TOTAL" msprop:Generator_ColumnPropNameInTable="PF_TOTALColumn" msprop:Generator_UserColumnName="PF_TOTAL" type="xs:double" minOccurs="0" />
+              <xs:element name="NOME_PROJETO" msprop:Generator_ColumnVarNameInTable="columnNOME_PROJETO" msprop:Generator_ColumnPropNameInRow="NOME_PROJETO" msprop:Generator_ColumnPropNameInTable="NOME_PROJETOColumn" msprop:Generator_UserColumnName="NOME_PROJETO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vw_PF_PRAZO" msprop:Generator_TableClassName="vw_PF_PRAZODataTable" msprop:Generator_TableVarName="tablevw_PF_PRAZO" msprop:Generator_TablePropName="vw_PF_PRAZO" msprop:Generator_RowDeletingName="vw_PF_PRAZORowDeleting" msprop:Generator_RowChangingName="vw_PF_PRAZORowChanging" msprop:Generator_RowEvHandlerName="vw_PF_PRAZORowChangeEventHandler" msprop:Generator_RowDeletedName="vw_PF_PRAZORowDeleted" msprop:Generator_UserTableName="vw_PF_PRAZO" msprop:Generator_RowChangedName="vw_PF_PRAZORowChanged" msprop:Generator_RowEvArgName="vw_PF_PRAZORowChangeEvent" msprop:Generator_RowClassName="vw_PF_PRAZORow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PF_TOTAL" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPF_TOTAL" msprop:Generator_ColumnPropNameInRow="PF_TOTAL" msprop:Generator_ColumnPropNameInTable="PF_TOTALColumn" msprop:Generator_UserColumnName="PF_TOTAL" type="xs:double" minOccurs="0" />
+              <xs:element name="NOME_PROJETO" msprop:Generator_ColumnVarNameInTable="columnNOME_PROJETO" msprop:Generator_ColumnPropNameInRow="NOME_PROJETO" msprop:Generator_ColumnPropNameInTable="NOME_PROJETOColumn" msprop:Generator_UserColumnName="NOME_PROJETO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

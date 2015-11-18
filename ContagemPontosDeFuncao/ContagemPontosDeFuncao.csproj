@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -179,7 +180,21 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="Relatorios\DsPrincipal.xsc">
+      <DependentUpon>DsPrincipal.xsd</DependentUpon>
+    </Content>
+    <None Include="Relatorios\DsPrincipal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsPrincipal.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Relatorios\DsPrincipal.xss">
+      <DependentUpon>DsPrincipal.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Relatorios\RelatorioDeCusto.aspx" />
+    <Content Include="Relatorios\RelatorioDePrazo.aspx" />
+    <Content Include="Relatorios\visualizar.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -204,6 +219,7 @@
     <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
     <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
     <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\Relatorios.js" />
     <Content Include="Scripts\WebForms\SmartNav.js" />
     <Content Include="Scripts\WebForms\TreeView.js" />
     <Content Include="Scripts\WebForms\WebForms.js" />
@@ -384,6 +400,32 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorios\DsPrincipal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsPrincipal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDeCusto.aspx.cs">
+      <DependentUpon>RelatorioDeCusto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDeCusto.aspx.designer.cs">
+      <DependentUpon>RelatorioDeCusto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDePrazo.aspx.cs">
+      <DependentUpon>RelatorioDePrazo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDePrazo.aspx.designer.cs">
+      <DependentUpon>RelatorioDePrazo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\visualizar.aspx.cs">
+      <DependentUpon>visualizar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\visualizar.aspx.designer.cs">
+      <DependentUpon>visualizar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -415,6 +457,10 @@
       <Project>{438746ff-ab76-48f2-8c98-9281c094e5d5}</Project>
       <Name>Infra</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Relatorios\Gerenciais\rep_CUSTO.rdlc" />
+    <EmbeddedResource Include="Relatorios\Gerenciais\rep_PRAZO.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
